@@ -365,15 +365,14 @@ def main(source, writer='mediawiki', mediaxml=False, docTitle=None):
                 except:
                     pass
 
-
-    if docTitle:
-        mwrap = MediawikiXMLWrapper()
-        #mediawiki allows no camelcased syntax for titles on export?
-        docTitle = fh.splitCamelCase(docTitle.strip()) 
-        docTitle = docTitle.title()
-        output = mwrap.wrapInMinimalHeader(docTitle, output)
-    else:
-        sys.stderr.write('No title found. Omitting XML.\n')
+        if docTitle:
+            mwrap = MediawikiXMLWrapper()
+            #mediawiki allows no camelcased syntax for titles on export?
+            docTitle = fh.splitCamelCase(docTitle.strip()) 
+            docTitle = docTitle.title()
+            output = mwrap.wrapInMinimalHeader(docTitle, output)
+        else:
+            sys.stderr.write('No title found. Omitting XML.\n')
 
     print output
     

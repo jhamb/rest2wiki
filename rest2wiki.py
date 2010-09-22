@@ -284,6 +284,12 @@ class MediaWikiVisitor(GoogleWikiVisitor):
     def depart_comment(self, node):
         self.output.extend([' --!>', '\n'])
 
+    def visit_title_reference(self, node):
+        pass
+
+    def depart_title_reference(self, node):
+        pass
+
 
 class MediawikiXMLWrapper():
     """
